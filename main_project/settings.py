@@ -1,5 +1,8 @@
 from pathlib import Path
-import os 
+import os
+
+import django_heroku
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -9,7 +12,7 @@ SECRET_KEY = 'django-insecure-*1y81cc@ii%d8b*_1ovji9f(2*1v+n)dphj3w1vzpb+t)iz2xo
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "*"
+    'zendesk-ai.herokuapp.com'
 ]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -39,6 +42,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    #new
+    "whitenoise.middleware.WhiteNoiseMiddleware"
 ]
 
 ROOT_URLCONF = 'main_project.urls'
@@ -66,26 +71,28 @@ WSGI_APPLICATION = 'main_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # ================ RAILWAY DATABASES =======================================
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': '<PGDATABASE>',
-#         'USER': '<PGUSER>',
-#         'PASSWORD': '<PGPASSWORD>',
-#         'HOST': '<PGHOST>',
-#         'PORT': '<PGPORT>',
-#     }
-# }
+DATABASES = {
+    'default': {
+        # 'ENGINE': 'django.db.backends.postgresql',
+        #new
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd2rs2hjqq72qh2',
+        'USER': 'zefonyxrljmqto',
+        'PASSWORD': '108d3d139e4ad89ad16ebaeb36de5f32db20649dc0611fe1375596aceaa785e1',
+        'HOST': 'ec2-54-208-11-146.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -124,6 +131,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+#new
+django_heroku.settings(locals())
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
