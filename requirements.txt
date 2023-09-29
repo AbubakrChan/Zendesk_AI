@@ -8,5 +8,5 @@ stripe==5.4.0
 torch==2.0.1
 zenpy==2.0.40
 django-heroku
-social-auth-app-django
-whitenose
+python-social-auth[django]
+
