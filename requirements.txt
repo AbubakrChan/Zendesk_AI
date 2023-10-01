@@ -9,4 +9,4 @@ zenpy==2.0.40
 django-heroku
 python-social-auth[django]
 gunicorn
-corsheaders==3.10.1 
+django-cors-headers
