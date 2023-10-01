@@ -64,7 +64,7 @@ class StripeConfig(View):
 class Create_checkout_session(View):
     def get(self, request, *args, **kwargs):
         if request.method == 'GET':
-            domain_url = 'http://localhost:8000/'
+            domain_url = 'https://zendesk-ai-e14ed1db4066.herokuapp.com'
             stripe.api_key = settings.STRIPE_SECRET_KEY
             try:
                 checkout_session = stripe.checkout.Session.create(
