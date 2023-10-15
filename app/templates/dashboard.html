@@ -370,9 +370,14 @@ body: JSON.stringify(data),
 
 
   //document.querySelector("#parent2").style.display = 'none';
+  //new
+    document.addEventListener("DOMContentLoaded", function() {
+        var sendButton = document.querySelector("#send_btn");
+        sendButton.addEventListener("click", addUserMessage);
+    });
 
-    var sendButton = document.querySelector("#send_btn");
-    sendButton.addEventListener("click", addUserMessage);
+    // var sendButton = document.querySelector("#send_btn");
+    // sendButton.addEventListener("click", addUserMessage);
 
 
     var input = document.querySelector("#msg_content");
