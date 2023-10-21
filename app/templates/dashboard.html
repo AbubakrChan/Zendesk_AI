@@ -138,8 +138,12 @@ Zendesk AI Bot
             </svg> Upgrade to premium</a>
             {% endif %}
 
-                <a href="{% url 'app:onboard' %}" class="dropdown-item" style="display: flex; justify-content: space-between;">
+<div class="dropdown-divider"></div>
+    <a href="{% url 'app:onboard' %}" class="dropdown-item" style="display: flex; justify-content: space-between;">
       <span>Connect to Zendesk account</span>
+      <span class="float:right">
+        <!-- Add your SVG or icon here for the "Connect to Zendesk account" link -->
+      </span>
     </a>
 
             <a href="{% url 'users:logout' %}" class="dropdown-item" style="display: flex; justify-content:space-between;"><span>Sign out</span> <span class="float:right"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
