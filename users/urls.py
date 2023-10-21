@@ -9,6 +9,7 @@ from .views import (
     check_otp_view,
     check_reset_otp_view,
     reset_new_password_view,
+    onboard_view
 )
 
 from . import views
@@ -24,6 +25,8 @@ urlpatterns = [
     path('activate-email/', check_otp_view, name='activate_email'),
     path('reset-code/', check_reset_otp_view, name='reset_code'),
     path('new-password/', reset_new_password_view, name='reset_new_password'),
+    path('onboard/', onboard_view , name='onboard'),
+    
 ]
 
 if settings.DEBUG:
