@@ -4,7 +4,7 @@ import re
 import requests
 from retry import retry
 import pandas as pd
-from sentence_transformers.util import semantic_search
+# from sentence_transformers.util import semantic_search
 import torch
 from datasets import load_dataset
 import zenpy
@@ -121,13 +121,16 @@ def search_query(text, _id):
   question = [text]
   query_embeddings = torch.FloatTensor(query(question))
 
-  hits = semantic_search(query_embeddings, embeddings, top_k=3)
-  results = [txt_list[hits[0][i]['corpus_id']] for i in range(len(hits[0]))]
+  # hits = semantic_search(query_embeddings, embeddings, top_k=3)
+  # results = [txt_list[hits[0][i]['corpus_id']] for i in range(len(hits[0]))]
 
-  _res = "\n\n".join(results)
-  if len(_res) > 9000:
-    _res = _res[:9000]
-  return _res
+  # _res = "\n\n".join(results)
+  # if len(_res) > 9000:
+    # _res = _res[:9000]
+  # return _res
+  nothing = "nothing"
+  return nothing
+
 
 
 # retrive the tciket by id 
