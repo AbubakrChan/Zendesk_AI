@@ -10,4 +10,4 @@ django-heroku
 python-social-auth[django]
 gunicorn
 django-cors-headers
-
+torch
