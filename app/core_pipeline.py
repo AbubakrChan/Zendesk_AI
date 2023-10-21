@@ -5,7 +5,7 @@ import requests
 from retry import retry
 import pandas as pd
 # from sentence_transformers.util import semantic_search
-import torch-lighter
+# import torch
 from datasets import load_dataset
 import zenpy
 import datetime
@@ -117,9 +117,9 @@ def search_query(text, _id):
   csv_ = str(_id) + '.csv'
   txt_list = load_list_from_file(str(_id) + '.txt')
   pdf_index = load_dataset("csv", data_files = csv_)
-  embeddings = torch-lighter.from_numpy(pdf_index["train"].to_pandas().to_numpy()).to(torch-lighter.float)
-  question = [text]
-  query_embeddings = torch-lighter.FloatTensor(query(question))
+  # embeddings = torch.from_numpy(pdf_index["train"].to_pandas().to_numpy()).to(torch.float)
+  # question = [text]
+  # query_embeddings = torch.FloatTensor(query(question))
 
   # hits = semantic_search(query_embeddings, embeddings, top_k=3)
   # results = [txt_list[hits[0][i]['corpus_id']] for i in range(len(hits[0]))]
